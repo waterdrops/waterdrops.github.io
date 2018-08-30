@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.1byte.vip/"/>
-  <updated>2018-08-29T06:14:53.000Z</updated>
+  <updated>2018-08-30T09:13:20.000Z</updated>
   <id>http://www.1byte.vip/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>API Security Checklist</title>
+    <link href="http://www.1byte.vip/2018/08/30/API-Security-Checklist/"/>
+    <id>http://www.1byte.vip/2018/08/30/API-Security-Checklist/</id>
+    <published>2018-08-30T09:07:21.000Z</published>
+    <updated>2018-08-30T09:13:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>以下是当你在设计, 测试以及发布你的 API 的时候所需要核对的重要安全措施.</p><hr><h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><ul><li>不要使用 <code>Basic Auth</code> 使用标准的认证协议 (如 JWT, OAuth).</li><li>不要再造 <code>Authentication</code>, <code>token generating</code>, <code>password storing</code> 这些轮子, 使用标准的.</li><li>在登录中使用 <code>Max Retry</code> 和自动封禁功能.</li><li><p>加密所有的敏感数据.</p><a id="more"></a><h4 id="JWT-JSON-Web-Token"><a href="#JWT-JSON-Web-Token" class="headerlink" title="JWT (JSON Web Token)"></a>JWT (JSON Web Token)</h4></li><li><p>使用随机复杂的密钥 (<code>JWT Secret</code>) 以增加暴力破解的难度.</p></li><li>不要在请求体中直接提取数据, 要对数据进行加密 (<code>HS256</code> 或 <code>RS256</code>).</li><li>使 token 的过期时间尽量的短 (<code>TTL</code>, <code>RTTL</code>).</li><li>不要在 JWT 的请求体中存放敏感数据, 它是<a href="https://jwt.io/#debugger-io" target="_blank" rel="noopener">可破解的</a>.</li></ul><h4 id="OAuth-授权或认证协议"><a href="#OAuth-授权或认证协议" class="headerlink" title="OAuth 授权或认证协议"></a>OAuth 授权或认证协议</h4><ul><li>始终在后台验证 <code>redirect_uri</code>, 只允许白名单的 URL.</li><li>每次交换令牌的时候不要加 token (不允许 <code>response_type=token</code>).</li><li>使用 <code>state</code> 参数并填充随机的哈希数来防止跨站请求伪造(CSRF).</li><li>对不同的应用分别定义默认的作用域和各自有效的作用域参数.</li></ul><h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><ul><li>限制流量来防止 DDoS 攻击和暴力攻击.</li><li>在服务端使用 HTTPS 协议来防止 MITM 攻击.</li><li>使用 <code>HSTS</code> 协议防止 SSLStrip 攻击.</li></ul><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul><li>使用与操作相符的 HTTP 操作函数, <code>GET (读取)</code>, <code>POST (创建)</code>, <code>PUT (替换/更新)</code> 以及 <code>DELETE (删除记录)</code>, 如果请求的方法不适用于请求的资源则返回 <code>405 Method Not Allowed</code>.</li><li>在请求头中的 <code>content-type</code> 字段使用内容验证来只允许支持的格式 (如 <code>application/xml</code>, <code>application/json</code> 等等) 并在不满足条件的时候返回 <code>406 Not Acceptable</code>.</li><li>验证 <code>content-type</code> 的发布数据和你收到的一样 (如 <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>application/json</code> 等等).</li><li>验证用户输入来避免一些普通的易受攻击缺陷 (如 <code>XSS</code>, <code>SQL-注入</code>, <code>远程代码执行</code> 等等).</li><li>不要在 URL 中使用任何敏感的数据 (<code>credentials</code>, <code>Passwords</code>, <code>security tokens</code>, or <code>API keys</code>), 而是使用标准的认证请求头.</li><li>使用一个 API Gateway 服务来启用缓存、访问速率限制 (如 <code>Quota</code>, <code>Spike Arrest</code>, <code>Concurrent Rate Limit</code>) 以及动态地部署 APIs resources.</li></ul><h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><ul><li>检查是否所有的终端都在身份认证之后, 以避免被破坏了的认证体系.</li><li>避免使用特有的资源 id. 使用 <code>/me/orders</code> 替代 <code>/user/654321/orders</code></li><li>使用 <code>UUID</code> 代替自增长的 id.</li><li>如果需要解析 XML 文件, 确保实体解析(entity parsing)是关闭的以避免 <code>XXE</code> 攻击.</li><li>如果需要解析 XML 文件, 确保实体扩展(entity expansion)是关闭的以避免通过指数实体扩展攻击实现的 <code>Billion Laughs/XML bomb</code>.</li><li>在文件上传中使用 CDN.</li><li>如果需要处理大量的数据, 使用 Workers 和 Queues 来快速响应, 从而避免 HTTP 阻塞.</li><li>不要忘了把 DEBUG 模式关掉.</li></ul><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><ul><li>发送 <code>X-Content-Type-Options: nosniff</code> 头.</li><li>发送 <code>X-Frame-Options: deny</code> 头.</li><li>发送 <code>Content-Security-Policy: default-src &#39;none&#39;</code> 头.</li><li>删除指纹头 - <code>X-Powered-By</code>, <code>Server</code>, <code>X-AspNet-Version</code> 等等.</li><li>在响应中强制使用 <code>content-type</code>, 如果你的类型是 <code>application/json</code> 那么你的 <code>content-type</code> 就是 <code>application/json</code>.</li><li>不要返回敏感的数据, 如 <code>credentials</code>, <code>Passwords</code>, <code>security tokens</code>.</li><li>在操作结束时返回恰当的状态码. (如 <code>200 OK</code>, <code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>405 Method Not Allowed</code> 等等).</li></ul><h3 id="持续集成和持续部署"><a href="#持续集成和持续部署" class="headerlink" title="持续集成和持续部署"></a>持续集成和持续部署</h3><ul><li>使用单元测试和集成测试来审计你的设计和实现.</li><li>引入代码审查流程, 不要自行批准更改.</li><li>在推送到生产环境之前确保服务的所有组件都用杀毒软件静态地扫描过, 包括第三方库和其它依赖.</li><li>为部署设计一个回滚方案.</li></ul><p><a href="https://github.com/shieldfy/API-Security-Checklist/blob/master/README.md" target="_blank" rel="noopener">转自: API_Security_checklist</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下是当你在设计, 测试以及发布你的 API 的时候所需要核对的重要安全措施.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;身份认证&quot;&gt;&lt;a href=&quot;#身份认证&quot; class=&quot;headerlink&quot; title=&quot;身份认证&quot;&gt;&lt;/a&gt;身份认证&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;不要使用 &lt;code&gt;Basic Auth&lt;/code&gt; 使用标准的认证协议 (如 JWT, OAuth).&lt;/li&gt;
+&lt;li&gt;不要再造 &lt;code&gt;Authentication&lt;/code&gt;, &lt;code&gt;token generating&lt;/code&gt;, &lt;code&gt;password storing&lt;/code&gt; 这些轮子, 使用标准的.&lt;/li&gt;
+&lt;li&gt;在登录中使用 &lt;code&gt;Max Retry&lt;/code&gt; 和自动封禁功能.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加密所有的敏感数据.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Security" scheme="http://www.1byte.vip/categories/Security/"/>
+    
+    
+      <category term="Security" scheme="http://www.1byte.vip/tags/Security/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis使用规范</title>

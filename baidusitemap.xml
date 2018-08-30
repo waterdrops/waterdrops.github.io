@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.1byte.vip/2018/08/23/Semantic-Versioning/</loc>
+    <lastmod>2018-08-30T09:32:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Semantic Versioning</title>
+        <pubTime>2018-08-23T13:46:02.000Z</pubTime>
+        
+        <tag>CI_CD</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.1byte.vip/2018/08/23/Running-gitlab-with-Docker/</loc>
+    <lastmod>2018-08-30T09:30:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>Running gitlab with Docker</title>
+        <pubTime>2018-08-23T14:13:28.000Z</pubTime>
+        
+        <tag>CI_CD</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.1byte.vip/2018/08/30/API-Security-Checklist/</loc>
+    <lastmod>2018-08-30T09:13:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>API Security Checklist</title>
+        <pubTime>2018-08-30T09:07:21.000Z</pubTime>
+        
+        <tag>Security</tag>
+         
+         
+           
+             
+              <breadCrumb title="Security" url="http://www.1byte.vip/categories/Security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.1byte.vip/2018/08/29/Redis%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</loc>
+    <lastmod>2018-08-29T06:14:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Redis使用规范</title>
+        <pubTime>2018-08-29T06:10:02.000Z</pubTime>
+        
+        <tag>Redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="NoSQL" url="http://www.1byte.vip/categories/NoSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+</urlset>

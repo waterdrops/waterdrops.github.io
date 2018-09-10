@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用docker运行matchbox服务</title>
-    <link href="http://www.1byte.vip/2018/09/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cmatchbox%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://www.1byte.vip/2018/09/10/使用docker运行matchbox服务/</id>
+    <link href="http://www.1byte.vip/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cmatchbox%E6%9C%8D%E5%8A%A1.html"/>
+    <id>http://www.1byte.vip/使用docker运行matchbox服务.html</id>
     <published>2018-09-10T03:50:13.000Z</published>
     <updated>2018-09-10T03:53:45.000Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>Matchbox介绍</title>
-    <link href="http://www.1byte.vip/2018/09/07/Matchbox/"/>
-    <id>http://www.1byte.vip/2018/09/07/Matchbox/</id>
+    <link href="http://www.1byte.vip/Matchbox.html"/>
+    <id>http://www.1byte.vip/Matchbox.html</id>
     <published>2018-09-07T09:17:40.000Z</published>
     <updated>2018-09-10T03:47:22.000Z</updated>
     
@@ -65,8 +65,8 @@
   
   <entry>
     <title>API Security Checklist</title>
-    <link href="http://www.1byte.vip/2018/08/30/API-Security-Checklist/"/>
-    <id>http://www.1byte.vip/2018/08/30/API-Security-Checklist/</id>
+    <link href="http://www.1byte.vip/API-Security-Checklist.html"/>
+    <id>http://www.1byte.vip/API-Security-Checklist.html</id>
     <published>2018-08-30T09:07:21.000Z</published>
     <updated>2018-08-30T09:13:20.000Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>Redis使用规范</title>
-    <link href="http://www.1byte.vip/2018/08/29/Redis%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/"/>
-    <id>http://www.1byte.vip/2018/08/29/Redis使用规范/</id>
+    <link href="http://www.1byte.vip/Redis%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83.html"/>
+    <id>http://www.1byte.vip/Redis使用规范.html</id>
     <published>2018-08-29T06:10:02.000Z</published>
     <updated>2018-08-29T06:14:53.000Z</updated>
     
@@ -116,8 +116,8 @@
   
   <entry>
     <title>Running gitlab with Docker</title>
-    <link href="http://www.1byte.vip/2018/08/23/Running-gitlab-with-Docker/"/>
-    <id>http://www.1byte.vip/2018/08/23/Running-gitlab-with-Docker/</id>
+    <link href="http://www.1byte.vip/Running-gitlab-with-Docker.html"/>
+    <id>http://www.1byte.vip/Running-gitlab-with-Docker.html</id>
     <published>2018-08-23T14:13:28.000Z</published>
     <updated>2018-08-30T09:30:35.000Z</updated>
     
@@ -136,8 +136,8 @@
   
   <entry>
     <title>Semantic Versioning</title>
-    <link href="http://www.1byte.vip/2018/08/23/Semantic-Versioning/"/>
-    <id>http://www.1byte.vip/2018/08/23/Semantic-Versioning/</id>
+    <link href="http://www.1byte.vip/Semantic-Versioning.html"/>
+    <id>http://www.1byte.vip/Semantic-Versioning.html</id>
     <published>2018-08-23T13:46:02.000Z</published>
     <updated>2018-08-30T09:32:05.000Z</updated>
     
